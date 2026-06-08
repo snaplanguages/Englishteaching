@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1 - How to teach English | SnapEnglish</title>
+  <link rel="icon" type="image/png" href="ảnh.png">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #f39c12;
+            --bg-light: #f9f9f9;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #eef2f3;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), #3498db);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        /* Style the tab */
+        .tab {
+            overflow: hidden;
+            background-color: #f1f1f1;
+            display: flex;
+        }
+
+        /* Style the buttons inside the tab */
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 1.1em;
+            font-weight: bold;
+            flex: 1;
+            color: #555;
+        }
+
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        .tab button.active {
+            background-color: #fff;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 30px;
+            animation: fadeEffect 0.5s;
+        }
+
+        @keyframes fadeEffect {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        /* Content Styling */
+        h2 {
+            color: var(--primary-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 10px;
+            margin-top: 30px;
+        }
+
+        .highlight-box {
+            background-color: #fef9e7;
+            border-left: 5px solid #f1c40f;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .tip-box {
+            background-color: #e8f8f5;
+            border-left: 5px solid #1abc9c;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .warn-box {
+            background-color: #fdedec;
+            border-left: 5px solid #e74c3c;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .keyword {
+            color: var(--secondary-color);
+            font-weight: bold;
+            background: #ffeb3b4a;
+            padding: 0 5px;
+            border-radius: 3px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        ul li::before {
+            content: '💡';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* Quiz Styling */
+        .question-block {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+        }
+
+        .question-block h3 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+
+        .options label {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: all 0.2s;
+        }
+
+        .options label:hover {
+            background: #eaf2f8;
+            border-color: #3498db;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .btn-submit {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto 0;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #1a252f;
+        }
+
+        #quiz-result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.2em;
+            display: none;
+        }
+        
+        .correct-ans { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .wrong-ans { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Nghệ Thuật Giảng Dạy Bằng Trái Tim</h1>
+        <p>Bí quyết từ 40 năm kinh nghiệm & Giáo trình của Jeremy Harmer</p>
+    </div>
+
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'Lesson')" id="defaultOpen">📚 Hành Trang Lên Lớp</button>
+        <button class="tablinks" onclick="openTab(event, 'Quiz')">🎯 Bài Tập Thử Thách</button>
+    </div>
+
+    <div id="Lesson" class="tabcontent">
+        <p><em>Chào các đồng nghiệp tương lai! Thầy đã dành cả 40 năm thanh xuân đứng trên bục giảng. Thầy hiểu rằng việc dạy tiếng Anh không chỉ là truyền đạt ngữ pháp hay từ vựng, mà là nghệ thuật kết nối con người. Dựa trên tinh hoa của quyển "How to Teach English" của Jeremy Harmer, thầy đã đúc kết lại thành cẩm nang chi tiết nhất, đa sắc màu nhất để các em không bao giờ quên. Nào, chúng ta bắt đầu!</em></p>
+
+        <h2>1. Thế nào là một giáo viên xuất sắc? <span class="keyword">(What makes a good teacher?)</span></h2>
+        <div class="highlight-box">
+            "Chân lý cao nhất: Một giáo viên giỏi quan tâm đến việc học của học viên hơn là việc dạy của chính mình"[cite: 65].
+        </div>
+        <ul>
+            <li><strong>Mặt nạ sư phạm (Teacher's face):</strong> Một giáo viên giỏi là người dù có cãi nhau với người yêu trước giờ làm, bước qua cánh cửa lớp vẫn phải mang một "gương mặt giáo viên" năng lượng và rạng rỡ[cite: 21]. Cảm xúc tiêu cực lây lan rất nhanh!</li>
+            <li><strong>Là một Entertainer (Người mang lại niềm vui) nhưng có chừng mực:</strong> Học sinh thích được vui vẻ[cite: 31]. Nhưng hãy nhớ, vui vẻ chỉ là công cụ để đưa kiến thức vào đầu các em, đừng biến lớp học thành sân khấu hài kịch mà quên đi cốt lõi học thuật[cite: 32].</li>
+            <li><strong>Tính tương tác và Đồng cảm (Rapport & Empathy):</strong> Phải biết được mong ước, khát vọng và khó khăn của học viên[cite: 39]. Hãy gọi đúng tên của họ <span class="keyword">(Know their names)</span> [cite: 55] - đó là âm thanh ngọt ngào nhất.</li>
+            <li><strong>Sự tinh tế (Tact):</strong> Khi học viên làm sai, sửa lỗi là một "cuộc chạm trán nguy hiểm". Hãy sửa lỗi sao cho họ không cảm thấy bị xúc phạm[cite: 48, 49]. <em>Ví dụ: Thay vì nói "Em nói sai rồi", hãy mỉm cười và nói "Cách diễn đạt này khá thú vị, nhưng người bản xứ thường sẽ nói là..."</em></li>
+            <li><strong>Điều phối lớp (Class Management):</strong> Phải biết kéo những học sinh trầm tính ra khỏi vỏ bọc và kiểm soát những em nói quá nhiều[cite: 40]. Quản lý kỷ luật không phải là quát tháo, mà là giúp đỡ[cite: 50].</li>
+        </ul>
+
+        <h2>2. Nghệ thuật ăn nói với học viên <span class="keyword">(How should teachers talk to students?)</span></h2>
+        <div class="tip-box">
+            <strong>Bí kíp cốt lõi:</strong> Hãy tưởng tượng cách cha mẹ nói chuyện với đứa trẻ mới tập nói. Đó chính là <strong>Rough-tuning</strong> (Tinh chỉnh thô)[cite: 75, 76].
+        </div>
+        <ul>
+            <li><strong>Rough-tuning là gì?:</strong> Là sự đơn giản hóa ngôn ngữ một cách vô thức[cite: 76]. Bạn không cần phải nói chính xác 100% đúng cấp độ, mà dựa vào sự đồng cảm để cảm nhận xem học viên có đang hiểu mình không[cite: 78, 79]. <em>Ví dụ: Với học viên A1, thầy sẽ dùng "It is very big", chứ không bao giờ dùng "It is gargantuan", dù thầy có biết từ đó đi chăng nữa.</em></li>
+            <li><strong>Sức mạnh của ngôn ngữ cơ thể:</strong> Lời nói phải đi đôi với cử chỉ (gestures), biểu cảm (expressions), và điệu bộ (mime)[cite: 82]. Diễn tả "heavy" (nặng nề) thì vai phải chùng xuống, diễn tả "drunk" (say xỉn) thì người phải loạng choạng[cite: 89].</li>
+        </ul>
+
+        <h2>3. Cách đưa ra hướng dẫn "chuẩn không cần chỉnh" <span class="keyword">(Giving instructions)</span></h2>
+        <p>Lên kế hoạch một hoạt động siêu hay nhưng học viên không biết phải làm gì thì xem như "đổ sông đổ biển"[cite: 91].</p>
+        <ul>
+            <li><strong>K.I.S.S (Keep It Short & Simple):</strong> Hướng dẫn phải đơn giản và logic[cite: 92].</li>
+            <li><strong>ICQs (Instruction Checking Questions - Câu hỏi kiểm tra hướng dẫn):</strong> Đừng bao giờ hỏi <em>"Do you understand?" (Các em hiểu không?)</em> vì 99% họ sẽ gật đầu dù chả hiểu gì! Hãy yêu cầu một học sinh giải thích lại hoặc làm mẫu cho cả lớp xem[cite: 97]. <em>Ví dụ: "Vậy, chúng ta sẽ làm việc cá nhân hay theo cặp hả Lan?" - "Dạ, theo cặp ạ".</em></li>
+        </ul>
+
+        <h2>4. Ai là người nên nói nhiều trong lớp? <span class="keyword">(Who should talk in class?)</span></h2>
+        <div class="warn-box">
+            Học viên mới là người cần thực hành ngôn ngữ, không phải giáo viên![cite: 102]. Tránh để lớp học trở thành nơi giáo viên thuyết giảng (droning on and on)[cite: 107].
+        </div>
+        <ul>
+            <li><strong>Quy tắc vàng:</strong> Tối đa hóa <span class="keyword">STT (Student Talking Time)</span> và Tối thiểu hóa <span class="keyword">TTT (Teacher Talking Time)</span>[cite: 103].</li>
+            <li><strong>Nhưng TTT không hoàn toàn xấu:</strong> Nếu giáo viên biết cách "Rough-tune", lời nói của giáo viên sẽ trở thành <strong>"Comprehensible Input"</strong> (Đầu vào dễ hiểu - thuyết của Stephen Krashen)[cite: 105]. Học sinh được "tắm" trong ngôn ngữ tự nhiên, giúp hấp thụ tiếng Anh dễ dàng hơn.</li>
+        </ul>
+
+        <h2>5. Cấu trúc của một bài học lôi cuốn <span class="keyword">(The best kinds of lesson)</span></h2>
+        <ul>
+            <li><strong>Kẻ thù số 1 là Sự buồn chán (Boredom):</strong> Sự nhàm chán đến từ việc lớp học quá dễ đoán (predictability)[cite: 114, 115].</li>
+            <li><strong>Phá vỡ quy tắc của chính bạn (Violate your behavior patterns) - John Fanselow:</strong> Thường ngày bạn mặc áo vest trang trọng? Hôm nay hãy mặc áo phông! Thường ngày bạn nói to và năng lượng? Hôm nay hãy chậm rãi và nhẹ nhàng[cite: 118, 119, 120, 121]. Sự bất ngờ tạo ra sự tò mò và tập trung[cite: 123].</li>
+            <li><strong>Chế độ ăn đa dạng (Varied Diet):</strong> Một tiết học 50 phút không thể chỉ có mỗi viết. Hãy trộn lẫn nhiều dạng bài tập và chủ đề khác nhau[cite: 125, 126, 127]. </li>
+            <li><strong>Nhưng đừng tạo ra sự hỗn loạn (Anarchy):</strong> Cần cân bằng giữa "Sự đa dạng bất ngờ" và "Sự an toàn có thể dự đoán được". Học viên vẫn cần một cấu trúc lớp học cố định để cảm thấy an tâm[cite: 128, 130].</li>
+        </ul>
+
+        <h2>6. Sự linh hoạt trong giáo án <span class="keyword">(Following a pre-arranged plan)</span></h2>
+        <div class="highlight-box">
+            "Giáo án tốt nhất chỉ là một nguyên mẫu (prototypes). Giáo viên giỏi phải biết thích nghi!"[cite: 152, 153].
+        </div>
+        <ul>
+            <li><strong>Đôi khi phải vứt bỏ giáo án:</strong> Giả sử bạn tính cho hoạt động Role-play 20 phút. Nhưng học sinh đang quá hào hứng và làm rất tốt, hãy cho chúng thêm thời gian, sẵn sàng bỏ một bài Reading ở cuối buổi[cite: 133, 136, 137]. Dạy con người, không phải dạy cái giáo án!</li>
+            <li><strong>Kế hoạch B (Back-up plan):</strong> Loa hỏng? Có cặp học sinh làm bài xong quá nhanh? Học sinh bảo "Bài này tuần trước học rồi"? Giáo viên giỏi luôn có vài trò chơi nhỏ "giấu trong tay áo" (up their sleeves) để đối phó[cite: 146, 148, 151].</li>
+        </ul>
+        <p style="text-align:center; font-style: italic; margin-top:30px;">"Nghề giáo viên vất vả, nhưng khi nhìn thấy học trò của mình mở miệng nói được một câu tiếng Anh tự tin, mọi mệt mỏi sẽ tan biến. Cố lên các em nhé!" - Thầy.</p>
+    </div>
+
+    <div id="Quiz" class="tabcontent">
+        <h2>Bài Tập Kiểm Tra Độ Thấm Cuả Bài Học</h2>
+        <p>Làm xong bài này, kiến thức sẽ ghim vào não bộ các em như in dấu. Hãy trả lời các câu hỏi sau:</p>
+
+        <form id="quizForm">
+            <div class="question-block">
+                <h3>Câu 1: Thuật ngữ "Rough-tuning" (Tinh chỉnh thô) trong giao tiếp với học sinh có nghĩa là gì?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="wrong"> A. Luôn nói tiếng Anh ở trình độ bản xứ để ép học viên giỏi lên.</label>
+                    <label><input type="radio" name="q1" value="correct"> B. Sự đơn giản hóa ngôn ngữ một cách tự nhiên dựa trên mức độ thấu hiểu của học viên (giống cách cha mẹ nói với trẻ con).</label>
+                    <label><input type="radio" name="q1" value="wrong"> C. Việc chỉnh sửa phát âm của học sinh liên tục mỗi khi các em mở miệng.</label>
+                    <label><input type="radio" name="q1" value="wrong"> D. Chỉ sử dụng cử chỉ tay mà không dùng lời nói.</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <h3>Câu 2: Về thời lượng nói trong lớp, một giáo viên xuất sắc nên làm gì?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="wrong"> A. Tối đa hóa TTT (Teacher Talking Time) để thể hiện sự uyên bác.</label>
+                    <label><input type="radio" name="q2" value="wrong"> B. Hoàn toàn im lặng, để 100% thời gian cho học sinh tự nói chuyện.</label>
+                    <label><input type="radio" name="q2" value="correct"> C. Tối đa hóa STT (Student Talking Time) và giữ TTT ở mức hợp lý làm "Comprehensible Input".</label>
+                    <label><input type="radio" name="q2" value="wrong"> D. Chia đều thời gian 50/50 theo đúng đồng hồ đếm ngược.</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <h3>Câu 3: (True/False) Để kiểm tra xem học sinh có hiểu Hướng dẫn (Instructions) hay không, giáo viên chỉ cần hỏi: "Do you understand?".</h3>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="wrong"> True (Đúng)</label>
+                    <label><input type="radio" name="q3" value="correct"> False (Sai - Phải yêu cầu các em giải thích lại hoặc làm mẫu).</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <h3>Câu 4: (True/False) Khi có sự cố (VD: học sinh làm xong quá nhanh, loa hỏng), giáo viên có thể từ bỏ giáo án gốc để linh hoạt ứng phó.</h3>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="correct"> True (Đúng - Giáo án chỉ là nguyên mẫu).</label>
+                    <label><input type="radio" name="q4" value="wrong"> False (Sai - Phải bám sát giáo án đến cùng).</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <h3>Câu 5: Theo John Fanselow, thỉnh thoảng giáo viên nên "phá vỡ những quy tắc hành vi của chính mình" (VD: đang hay ngồi thì đứng, đang mặc đồ tây thì mặc áo thun) để tạo bất ngờ cho lớp.</h3>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="correct"> True (Đúng - Giúp chống lại sự nhàm chán/buồn ngủ).</label>
+                    <label><input type="radio" name="q5" value="wrong"> False (Sai - Làm vậy sẽ mất uy tín giáo viên).</label>
+                </div>
+            </div>
+
+            <button type="button" class="btn-submit" onclick="checkAnswers()">Nộp Bài Dành Lấy Điểm 10 Chói Lọi</button>
+        </form>
+
+        <div id="quiz-result"></div>
+    </div>
+
+</div>
+
+<script>
+    // Xử lý chuyển tab
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    // Mở tab mặc định
+    document.getElementById("defaultOpen").click();
+
+    // Xử lý chấm điểm bài tập
+    function checkAnswers() {
+        let score = 0;
+        const totalQuestions = 5;
+        const form = document.forms["quizForm"];
+        
+        // Kiểm tra từng câu
+        for (let i = 1; i <= totalQuestions; i++) {
+            let radios = form.elements["q" + i];
+            let answered = false;
+            for (let j = 0; j < radios.length; j++) {
+                if (radios[j].checked) {
+                    answered = true;
+                    if (radios[j].value === "correct") {
+                        score++;
+                    }
+                    break;
+                }
+            }
+            if (!answered) {
+                alert("Em ơi, hãy trả lời đầy đủ tất cả các câu trước khi nộp bài nhé!");
+                return;
+            }
+        }
+
+        const resultDiv = document.getElementById("quiz-result");
+        resultDiv.style.display = "block";
+        
+        if (score === totalQuestions) {
+            resultDiv.className = "correct-ans";
+            resultDiv.innerHTML = "🎉 Xuất sắc! " + score + "/" + totalQuestions + " điểm. Em đã hoàn toàn nắm được tinh hoa của nghệ thuật giảng dạy. Chúc em sớm trở thành một giáo viên vạn người mê!";
+        } else if (score >= 3) {
+            resultDiv.className = "correct-ans";
+            resultDiv.innerHTML = "👍 Rất tốt! " + score + "/" + totalQuestions + " điểm. Em hiểu bài khá vững rồi, đọc lại phần sai một chút là hoàn hảo nhé.";
+        } else {
+            resultDiv.className = "wrong-ans";
+            resultDiv.innerHTML = "😅 Cố gắng lên! " + score + "/" + totalQuestions + " điểm. Nghề giáo cần sự kiên nhẫn, hãy quay lại tab 'Bài Học' đọc kỹ hơn một chút nữa nhé.";
+        }
+    }
+</script>
+
+</body>
+</html>
